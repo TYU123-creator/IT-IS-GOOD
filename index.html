@@ -1,0 +1,608 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كن منظما</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= شاشة الدخول ================= -->
+<div id="authScreen" class="auth-screen">
+
+    <div class="auth-box">
+
+        <div class="logo">📋</div>
+        <h1>كن منظما</h1>
+        <p class="auth-subtitle">نظّم يومك وأنجز مهامك بسهولة</p>
+
+        <div id="loginBox">
+
+            <h2>تسجيل الدخول</h2>
+
+            <input
+                id="loginCode"
+                type="password"
+                placeholder="أدخل رمز الدخول"
+                autocomplete="off"
+            >
+
+            <button onclick="login()">دخول</button>
+
+            <p class="switch-auth">
+                ليس لديك حساب؟
+                <button class="text-button" onclick="showRegister()">إنشاء حساب</button>
+            </p>
+
+        </div>
+
+
+        <div id="registerBox" class="hidden">
+
+            <h2>إنشاء حساب</h2>
+
+            <input
+                id="registerUsername"
+                type="text"
+                placeholder="اسم المستخدم"
+            >
+
+            <input
+                id="registerCode"
+                type="password"
+                placeholder="اختر رمز الدخول"
+                autocomplete="off"
+            >
+
+            <input
+                id="registerCodeConfirm"
+                type="password"
+                placeholder="تأكيد رمز الدخول"
+                autocomplete="off"
+            >
+
+            <button onclick="register()">إنشاء الحساب</button>
+
+            <p class="switch-auth">
+                لديك حساب بالفعل؟
+                <button class="text-button" onclick="showLogin()">تسجيل الدخول</button>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= التطبيق ================= -->
+<div id="app" class="hidden">
+
+    <header class="topbar">
+
+        <div class="brand">
+            <span>📋</span>
+            <strong>كن منظما</strong>
+        </div>
+
+        <div class="top-user">
+            <span id="topUsername"></span>
+
+            <button onclick="showPage('home')" class="home-button">
+                🏠 الصفحة الرئيسية
+            </button>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- ================= الرئيسية ================= -->
+        <section id="homePage" class="page">
+
+            <div class="home-frame">
+
+                <h1>كن منظما</h1>
+
+                <p class="intro">
+                    موقعك لتنظيم مهامك اليومية وترتيب ما عليك إنجازه
+                    حتى لا تتراكم المهام إلى الغد.
+                </p>
+
+
+                <!-- ملخص اليوم -->
+                <div class="home-summary">
+
+                    <div class="summary-card">
+
+                        <div class="summary-title">
+                            📈 نسبة الإنجاز اليومية
+                        </div>
+
+                        <div class="progress-track">
+                            <div
+                                id="homeOverallFill"
+                                class="progress-fill moving-gradient"
+                            ></div>
+                        </div>
+
+                        <strong id="homeOverallText">0%</strong>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <div class="summary-title">
+                            ⭐ إنجاز المهام المميزة
+                        </div>
+
+                        <div class="progress-track">
+                            <div
+                                id="homeStarFill"
+                                class="progress-fill moving-gradient"
+                            ></div>
+                        </div>
+
+                        <strong id="homeStarText">0%</strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- المربعات الرئيسية -->
+                <div class="home-grid">
+
+                    <div class="home-card" onclick="showPage('student')">
+                        <div class="card-icon">👨🏻‍🎓</div>
+                        <h2>الطالب</h2>
+                        <p>مهام الدراسة اليومية</p>
+                    </div>
+
+
+                    <div class="home-card" onclick="showPage('employee')">
+                        <div class="card-icon">💼</div>
+                        <h2>الموظف</h2>
+                        <p>مهام العمل اليومية</p>
+                    </div>
+
+
+                    <div class="home-card" onclick="showPage('dashboard')">
+                        <div class="card-icon">🎯</div>
+                        <h2>لوحة التحكم</h2>
+                        <p>إحصائيات يومك وإنجازاتك</p>
+                    </div>
+
+
+                    <div class="home-card" onclick="showPage('tables')">
+                        <div class="card-icon">📚</div>
+                        <h2>الجداول</h2>
+                        <p>الجداول العادية والمهام والأسبوعية</p>
+                    </div>
+
+
+                    <div class="home-card" onclick="showPage('notes')">
+                        <div class="card-icon">📝</div>
+                        <h2>الملاحظات</h2>
+                        <p>اكتب ملاحظاتك وأفكارك</p>
+                    </div>
+
+                </div>
+
+
+                <div class="home-bottom-links">
+
+                    <button onclick="showPage('student')">
+                        👨🏻‍🎓 الطالب
+                    </button>
+
+                    <button onclick="showPage('employee')">
+                        💼 الموظف
+                    </button>
+
+                    <button onclick="showPage('dashboard')">
+                        🎯 لوحة التحكم
+                    </button>
+
+                    <button onclick="showPage('tables')">
+                        📚 الجداول
+                    </button>
+
+                    <button onclick="showPage('notes')">
+                        📝 الملاحظات
+                    </button>
+
+                </div>
+
+
+                <div class="home-tools">
+
+                    <button onclick="toggleDarkMode()">
+                        🌙 الوضع الليلي
+                    </button>
+
+                    <button onclick="showPage('settings')">
+                        ⚙️ الإعدادات
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= الطالب ================= -->
+        <section id="studentPage" class="page hidden">
+
+            <div class="page-header">
+
+                <button onclick="showPage('home')" class="back-button">
+                    🏠 الرئيسية
+                </button>
+
+                <h1>👨🏻‍🎓 الطالب</h1>
+
+            </div>
+
+            <div id="studentContent"></div>
+
+        </section>
+
+
+        <!-- ================= الموظف ================= -->
+        <section id="employeePage" class="page hidden">
+
+            <div class="page-header">
+
+                <button onclick="showPage('home')" class="back-button">
+                    🏠 الرئيسية
+                </button>
+
+                <h1>💼 الموظف</h1>
+
+            </div>
+
+            <div id="employeeContent"></div>
+
+        </section>
+
+
+        <!-- ================= لوحة التحكم ================= -->
+        <section id="dashboardPage" class="page hidden">
+
+            <div class="page-header">
+
+                <button onclick="showPage('home')" class="back-button">
+                    🏠 الرئيسية
+                </button>
+
+                <h1>🎯 لوحة التحكم لليوم</h1>
+
+            </div>
+
+            <div id="dashboardContent"></div>
+
+        </section>
+
+
+        <!-- ================= الجداول ================= -->
+        <section id="tablesPage" class="page hidden">
+
+            <div class="page-header">
+
+                <button onclick="showPage('home')" class="back-button">
+                    🏠 الرئيسية
+                </button>
+
+                <h1>📚 الجداول</h1>
+
+            </div>
+
+
+            <div class="table-options">
+
+                <button onclick="scrollToSection('normalTablesSection')">
+                    📑 الجداول العادية
+                </button>
+
+                <button onclick="scrollToSection('taskTablesSection')">
+                    📋 جداول المهام
+                </button>
+
+                <button onclick="scrollToSection('weeklySection')">
+                    📅 الجدول الأسبوعي
+                </button>
+
+            </div>
+
+
+            <div id="normalTablesSection" class="table-section">
+
+                <div class="section-title-row">
+                    <h2>📑 الجداول العادية</h2>
+
+                    <button onclick="addNormalTable()">
+                        ➕ إضافة جدول
+                    </button>
+                </div>
+
+                <div id="normalTables"></div>
+
+            </div>
+
+
+            <div id="taskTablesSection" class="table-section">
+
+                <div class="section-title-row">
+                    <h2>📋 جداول المهام</h2>
+
+                    <button onclick="addTaskTable()">
+                        ➕ إضافة جدول مهام
+                    </button>
+                </div>
+
+                <div id="taskTables"></div>
+
+            </div>
+
+
+            <div id="weeklySection" class="table-section">
+
+                <div class="section-title-row">
+                    <h2>📅 الجدول الأسبوعي</h2>
+                </div>
+
+                <div id="weeklyTable"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= الملاحظات ================= -->
+        <section id="notesPage" class="page hidden">
+
+            <div class="page-header">
+
+                <button onclick="showPage('home')" class="back-button">
+                    🏠 الرئيسية
+                </button>
+
+                <h1>📝 الملاحظات</h1>
+
+            </div>
+
+
+            <div class="notes-box">
+
+                <input
+                    id="notesTitle"
+                    type="text"
+                    placeholder="عنوان الملاحظات"
+                    oninput="saveNotes()"
+                >
+
+                <textarea
+                    id="notesBody"
+                    placeholder="اكتب ملاحظاتك هنا..."
+                    oninput="saveNotes()"
+                ></textarea>
+
+                <div class="save-message" id="notesSaved">
+                    ✓ يتم الحفظ تلقائياً
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= الإعدادات ================= -->
+        <section id="settingsPage" class="page hidden">
+
+            <div class="page-header">
+
+                <button onclick="showPage('home')" class="back-button">
+                    🏠 الرئيسية
+                </button>
+
+                <h1>⚙️ الإعدادات</h1>
+
+            </div>
+
+
+            <div class="settings-container">
+
+
+                <div class="settings-card">
+
+                    <h2>👤 الحساب</h2>
+
+                    <label>اسم المستخدم</label>
+
+                    <input
+                        id="settingsUsername"
+                        type="text"
+                    >
+
+                    <button onclick="saveUsername()">
+                        💾 حفظ الاسم
+                    </button>
+
+                </div>
+
+
+                <div class="settings-card">
+
+                    <h2>🎨 مظهر الموقع</h2>
+
+                    <label>لون الموقع</label>
+
+                    <div class="color-row">
+
+                        <input
+                            id="accentColor"
+                            type="color"
+                            onchange="changeAccent(this.value)"
+                        >
+
+                        <div class="color-presets">
+
+                            <button
+                                style="background:#1976d2"
+                                onclick="changeAccent('#1976d2')"
+                            ></button>
+
+                            <button
+                                style="background:#7b1fa2"
+                                onclick="changeAccent('#7b1fa2')"
+                            ></button>
+
+                            <button
+                                style="background:#00897b"
+                                onclick="changeAccent('#00897b')"
+                            ></button>
+
+                            <button
+                                style="background:#e65100"
+                                onclick="changeAccent('#e65100')"
+                            ></button>
+
+                            <button
+                                style="background:#c2185b"
+                                onclick="changeAccent('#c2185b')"
+                            ></button>
+
+                        </div>
+
+                    </div>
+
+
+                    <button onclick="toggleDarkMode()">
+                        🌙 تغيير الوضع الليلي
+                    </button>
+
+                </div>
+
+
+                <div class="settings-card">
+
+                    <h2>🔔 التنبيهات</h2>
+
+                    <div class="setting-line">
+
+                        <span>تفعيل التنبيهات</span>
+
+                        <label class="switch">
+
+                            <input
+                                id="notificationsToggle"
+                                type="checkbox"
+                                onchange="toggleNotifications()"
+                            >
+
+                            <span class="slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <label>وقت التذكير</label>
+
+                    <input
+                        id="reminderTime"
+                        type="time"
+                        onchange="saveReminderTime()"
+                    >
+
+                    <p class="setting-note">
+                        يعمل التذكير عندما يكون الموقع مفتوحاً، وقد يظهر عند فتح الموقع إذا كان وقت التذكير قد مر.
+                    </p>
+
+                </div>
+
+
+                <div class="settings-card">
+
+                    <h2>🔐 تغيير رمز الدخول</h2>
+
+                    <input
+                        id="oldCode"
+                        type="password"
+                        placeholder="رمز الدخول الحالي"
+                    >
+
+                    <input
+                        id="newCode"
+                        type="password"
+                        placeholder="رمز الدخول الجديد"
+                    >
+
+                    <input
+                        id="newCodeConfirm"
+                        type="password"
+                        placeholder="تأكيد الرمز الجديد"
+                    >
+
+                    <button onclick="changeCode()">
+                        🔑 تغيير الرمز
+                    </button>
+
+                </div>
+
+
+                <div class="settings-card">
+
+                    <h2>💾 البيانات</h2>
+
+                    <button onclick="exportData()">
+                        📤 تصدير البيانات
+                    </button>
+
+                    <label class="import-label">
+                        📥 استيراد البيانات
+                        <input
+                            type="file"
+                            id="importFile"
+                            accept=".json"
+                            onchange="importData(event)"
+                        >
+                    </label>
+
+                </div>
+
+
+                <div class="settings-card danger-card">
+
+                    <h2>⚠️ الحساب</h2>
+
+                    <button class="danger-button" onclick="deleteAccount()">
+                        🗑️ حذف الحساب
+                    </button>
+
+                    <button onclick="logout()">
+                        🚪 تسجيل الخروج
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

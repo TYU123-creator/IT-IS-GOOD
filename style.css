@@ -1,0 +1,1179 @@
+:root {
+    --accent: #1976d2;
+    --accent-soft: rgba(25,118,210,.14);
+    --accent-border: rgba(25,118,210,.35);
+
+    --bg: #f4f8fc;
+    --card: rgba(255,255,255,.88);
+    --text: #17202a;
+    --muted: #667085;
+    --border: rgba(25,118,210,.25);
+    --shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Tahoma, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: .3s;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ================= الدخول ================= */
+
+.auth-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background:
+        radial-gradient(circle at top right, var(--accent-soft), transparent 40%),
+        var(--bg);
+}
+
+.auth-box {
+    width: min(430px, 100%);
+    background: var(--card);
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--accent-border);
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background: var(--accent-soft);
+    border-radius: 22px;
+    font-size: 38px;
+}
+
+.auth-box h1 {
+    color: var(--accent);
+    margin-bottom: 5px;
+}
+
+.auth-subtitle {
+    color: var(--muted);
+}
+
+.auth-box h2 {
+    margin-top: 25px;
+}
+
+.auth-box input,
+.settings-card input,
+.notes-box input {
+    width: 100%;
+    padding: 13px 15px;
+    margin: 8px 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(255,255,255,.75);
+    color: var(--text);
+    outline: none;
+}
+
+.auth-box input:focus,
+.settings-card input:focus,
+.notes-box input:focus,
+.notes-box textarea:focus {
+    border-color: var(--accent);
+}
+
+.auth-box > div button:not(.text-button) {
+    width: 100%;
+    padding: 13px;
+    margin-top: 10px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--accent);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.switch-auth {
+    color: var(--muted);
+    margin-top: 20px;
+}
+
+.text-button {
+    border: 0;
+    background: none;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+
+/* ================= الشريط العلوي ================= */
+
+.topbar {
+    min-height: 70px;
+    padding: 10px 25px;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(12px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+    font-size: 22px;
+}
+
+.top-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.home-button,
+.back-button {
+    border: 1px solid var(--border);
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+
+/* ================= الصفحات ================= */
+
+.page {
+    width: min(1400px, 96%);
+    margin: 25px auto;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.page-header h1 {
+    color: var(--accent);
+    margin: 0;
+}
+
+
+/* ================= الرئيسية ================= */
+
+.home-frame {
+    border: 4px solid var(--accent);
+    border-radius: 30px;
+    padding: 35px;
+    text-align: center;
+    background: rgba(255,255,255,.35);
+}
+
+.home-frame > h1 {
+    color: var(--accent);
+    font-size: 38px;
+    margin: 5px 0 10px;
+}
+
+.intro {
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.9;
+    color: var(--muted);
+}
+
+
+/* ================= ملخص الرئيسية ================= */
+
+.home-summary {
+    max-width: 1000px;
+    margin: 28px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.summary-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.summary-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+
+/* ================= المربعات الرئيسية ================= */
+
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.home-card {
+    min-height: 190px;
+    border-radius: 24px;
+    border: 2px solid var(--border);
+    background: var(--card);
+    box-shadow: var(--shadow);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: .25s;
+}
+
+.home-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+}
+
+.card-icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.home-card h2 {
+    color: var(--accent);
+    margin: 5px;
+}
+
+.home-card p {
+    color: var(--muted);
+    margin: 5px;
+    line-height: 1.6;
+}
+
+.home-bottom-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.home-bottom-links button,
+.home-tools button {
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--accent);
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.home-tools {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+
+/* ================= التقدم ================= */
+
+.progress-track {
+    height: 15px;
+    border-radius: 20px;
+    background: rgba(100,100,100,.12);
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: inherit;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(220,45,45,.72),
+            rgba(245,170,40,.72),
+            rgba(40,175,85,.72)
+        );
+    background-size: 220% 100%;
+    animation: movingGradient 3s linear infinite;
+    transition: width .6s ease;
+}
+
+@keyframes movingGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 220% 50%;
+    }
+}
+
+
+/* ================= صفحات الطالب والموظف ================= */
+
+.person-progress-area {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow);
+}
+
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.progress-stat {
+    padding: 15px;
+    text-align: center;
+    border-radius: 15px;
+    background: var(--accent-soft);
+}
+
+.progress-stat strong {
+    display: block;
+    color: var(--accent);
+    font-size: 22px;
+    margin-top: 5px;
+}
+
+
+/*
+====================================================
+شكل المربعات القديم
+====================================================
+*/
+
+.old-boxes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    align-items: start;
+}
+
+
+/* المربع القديم نفسه */
+
+.old-task-box {
+    background: var(--card);
+    border: 3px solid var(--accent);
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+    min-height: 270px;
+}
+
+
+/* المربع الخامس */
+
+.old-task-box.fixed-box {
+    grid-column: 1 / -1;
+    border-style: dashed;
+}
+
+
+/* عنوان المربع */
+
+.box-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.box-title-input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    border-bottom: 2px solid var(--border);
+    background: transparent;
+    color: var(--accent);
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px 3px;
+    outline: none;
+    text-align: center;
+}
+
+.box-title-input:focus {
+    border-color: var(--accent);
+}
+
+.box-edit {
+    border: 0;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 7px 9px;
+}
+
+
+/* المهام داخل المربع */
+
+.inner-task {
+    display: grid;
+    grid-template-columns: 1fr 115px auto auto auto;
+    gap: 7px;
+    align-items: center;
+    padding: 9px;
+    margin: 8px 0;
+    background: var(--accent-soft);
+    border-radius: 12px;
+}
+
+.task-text,
+.task-time {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 9px;
+    background: rgba(255,255,255,.65);
+    color: var(--text);
+}
+
+.task-button {
+    border: 0;
+    border-radius: 9px;
+    min-width: 34px;
+    height: 34px;
+    background: rgba(255,255,255,.75);
+}
+
+.task-button.done {
+    border: 2px solid #35a853;
+}
+
+.task-button.not-done {
+    border: 2px solid #d93025;
+}
+
+.task-button.star {
+    border: 2px solid #f0b400;
+}
+
+.task-button.active-star {
+    background: rgba(255,193,7,.25);
+}
+
+.task-add {
+    width: 100%;
+    border: 1px dashed var(--accent);
+    color: var(--accent);
+    background: transparent;
+    border-radius: 11px;
+    padding: 9px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.delete-task {
+    color: #d93025;
+}
+
+
+/* أزرار أسفل مربعات المهام */
+
+.box-footer {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.box-footer button {
+    border: 1px solid var(--border);
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 8px 12px;
+    border-radius: 10px;
+}
+
+
+/* ================= إحصائيات ================= */
+
+.person-bottom-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.info-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.info-card h3 {
+    margin-top: 0;
+    color: var(--accent);
+}
+
+.big-number {
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+
+/* ================= لوحة التحكم ================= */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.dashboard-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.dashboard-card .icon {
+    font-size: 35px;
+}
+
+.dashboard-card h3 {
+    color: var(--accent);
+}
+
+.dashboard-number {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.achievements {
+    margin-top: 25px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.achievement-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.achievement {
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: var(--accent-soft);
+}
+
+
+/* ================= الجداول ================= */
+
+.table-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.table-options button,
+.section-title-row button {
+    border: 0;
+    background: var(--accent);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.table-section {
+    margin: 30px 0;
+    padding: 22px;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.35);
+}
+
+.section-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.section-title-row h2 {
+    color: var(--accent);
+}
+
+
+/* كروت الجداول */
+
+.table-card {
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    padding: 18px;
+    margin-bottom: 22px;
+    box-shadow: var(--shadow);
+}
+
+.table-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.table-name {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.table-head button {
+    border: 0;
+    background: var(--accent-soft);
+    padding: 9px 12px;
+    border-radius: 10px;
+}
+
+.table-scroll {
+    overflow-x: auto;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+.custom-table td,
+.custom-table th {
+    border: 1px solid var(--border);
+    padding: 0;
+    position: relative;
+}
+
+.custom-table textarea {
+    width: 100%;
+    min-height: 65px;
+    border: 0;
+    outline: 0;
+    resize: vertical;
+    padding: 10px;
+    background: transparent;
+    color: var(--text);
+    text-align: center;
+}
+
+.table-control {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px;
+}
+
+.table-control button {
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+
+/* ================= جدول المهام ================= */
+
+.task-table-wrapper {
+    display: flex;
+    gap: 18px;
+    align-items: stretch;
+}
+
+.task-table-main {
+    flex: 1;
+    min-width: 0;
+}
+
+
+/* المستطيل العمودي الشفاف */
+
+.vertical-progress {
+    width: 42px;
+    min-height: 380px;
+    border-radius: 20px;
+    background: rgba(100,100,100,.10);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(100,100,100,.12);
+    display: flex;
+    align-items: flex-end;
+}
+
+.vertical-progress-fill {
+    width: 100%;
+    height: 0%;
+    background:
+        linear-gradient(
+            to top,
+            rgba(220,45,45,.65),
+            rgba(245,170,40,.65),
+            rgba(40,175,85,.65)
+        );
+    background-size: 100% 220%;
+    animation: verticalGradient 3s linear infinite;
+    transition: height .7s ease;
+}
+
+@keyframes verticalGradient {
+    0% {
+        background-position: 50% 100%;
+    }
+
+    100% {
+        background-position: 50% -120%;
+    }
+}
+
+
+/* خلية جدول المهام */
+
+.task-cell {
+    min-width: 125px;
+}
+
+.task-cell textarea {
+    min-height: 80px;
+}
+
+
+/*
+لا يوجد هنا:
+تم / نصف تم / لم يتم
+في نهاية الصف.
+*/
+
+.task-cell-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 6px;
+}
+
+.circle-control {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    border: 0;
+    color: white;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.green-control {
+    background: rgba(40,175,85,.8);
+}
+
+.red-control {
+    background: rgba(220,45,45,.8);
+}
+
+.cell-count {
+    min-width: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.hide-cell-controls {
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+
+/* ================= الجدول الأسبوعي ================= */
+
+.weekly-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.weekly-table th,
+.weekly-table td {
+    border: 1px solid var(--border);
+    padding: 8px;
+    text-align: center;
+}
+
+.weekly-table th {
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.weekly-table textarea {
+    width: 100%;
+    min-height: 90px;
+    border: 0;
+    background: transparent;
+    resize: vertical;
+    outline: none;
+    color: var(--text);
+}
+
+
+/* ================= الملاحظات ================= */
+
+.notes-box {
+    max-width: 900px;
+    margin: auto;
+    background: var(--card);
+    border: 2px solid var(--border);
+    padding: 25px;
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+}
+
+.notes-box textarea {
+    width: 100%;
+    min-height: 450px;
+    margin-top: 10px;
+    padding: 15px;
+    resize: vertical;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: rgba(255,255,255,.65);
+    color: var(--text);
+    outline: none;
+}
+
+.save-message {
+    color: #35a853;
+    margin-top: 10px;
+}
+
+
+/* ================= الإعدادات ================= */
+
+.settings-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.settings-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+.settings-card h2 {
+    margin-top: 0;
+    color: var(--accent);
+}
+
+.settings-card label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.settings-card > button {
+    border: 0;
+    background: var(--accent);
+    color: white;
+    padding: 11px 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.color-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#accentColor {
+    width: 65px;
+    height: 45px;
+    padding: 3px;
+}
+
+.color-presets {
+    display: flex;
+    gap: 7px;
+}
+
+.color-presets button {
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px #aaa;
+}
+
+.setting-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.switch {
+    margin: 0 !important;
+    position: relative;
+    width: 52px;
+    height: 29px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    background: #bbb;
+    transition: .3s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    left: 4px;
+    top: 4px;
+    background: white;
+    border-radius: 50%;
+    transition: .3s;
+}
+
+.switch input:checked + .slider {
+    background: var(--accent);
+}
+
+.switch input:checked + .slider:before {
+    transform: translateX(23px);
+}
+
+.setting-note {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.import-label {
+    display: block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.import-label input {
+    display: none;
+}
+
+.danger-card {
+    border-color: rgba(220,45,45,.3);
+}
+
+.danger-button {
+    background: #d93025 !important;
+}
+
+
+/* ================= الوضع الليلي ================= */
+
+body.dark {
+    --bg: #10151c;
+    --card: rgba(27,34,43,.92);
+    --text: #edf2f7;
+    --muted: #aab4c0;
+    --border: rgba(100,170,240,.25);
+    --accent-soft: rgba(60,150,240,.14);
+}
+
+body.dark .auth-box input,
+body.dark .settings-card input,
+body.dark .notes-box input,
+body.dark .notes-box textarea,
+body.dark .task-text,
+body.dark .task-time,
+body.dark .custom-table textarea {
+    background: rgba(10,15,20,.5);
+    color: var(--text);
+}
+
+body.dark .home-frame,
+body.dark .table-section {
+    background: rgba(20,27,35,.45);
+}
+
+
+/* ================= الهاتف ================= */
+
+@media (max-width: 1100px) {
+
+    .home-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .settings-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 750px) {
+
+    .topbar {
+        flex-direction: column;
+        padding: 12px;
+    }
+
+    .home-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .home-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .old-boxes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .old-task-box.fixed-box {
+        grid-column: auto;
+    }
+
+    .progress-stats,
+    .person-bottom-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .inner-task {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .task-button {
+        width: 100%;
+    }
+
+    .task-table-wrapper {
+        gap: 8px;
+    }
+
+    .vertical-progress {
+        width: 28px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .home-frame {
+        padding: 15px;
+    }
+
+    .home-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-card {
+        min-height: 150px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .progress-stats,
+    .person-bottom-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .home-bottom-links,
+    .home-tools {
+        flex-direction: column;
+    }
+
+    .page {
+        width: 94%;
+    }
+
+}
